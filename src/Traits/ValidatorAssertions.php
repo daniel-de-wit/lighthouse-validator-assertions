@@ -12,9 +12,6 @@ use Nuwave\Lighthouse\Support\Contracts\ArgumentSetValidation;
 
 trait ValidatorAssertions
 {
-    /**
-     * @throws BindingResolutionException
-     */
     protected function assertValidatorMessages(
         ArgumentSetValidation $validator,
         array $input,
