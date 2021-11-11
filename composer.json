@@ -1,0 +1,39 @@
+{
+    "name": "daniel-de-wit/lighthouse-validator-assertion",
+    "type": "library",
+    "description": "Test Lighthouse validators with ease",
+    "keywords": [
+        "lighhouse",
+        "lighthouse-validator-test"
+    ],
+    "homepage": "https://github.com/daniel-de-wit/lighthouse-validator-assertion",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel de Wit",
+            "email": "daniel@danieldewit.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "phpunit/phpunit": "^7.5 || ^8.4 || ^9.0",
+        "nuwave/lighthouse": "^5.0.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.7"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "DanielDeWit\\LighthouseValidatorAssertions\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DanielDeWit\\LighthouseValidatorAssertions\\Tests\\": "tests"
+        }
+    }
+}
