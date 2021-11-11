@@ -1,12 +1,13 @@
 {
-    "name": "daniel-de-wit/lighthouse-validator-assertion",
+    "name": "daniel-de-wit/lighthouse-validator-assertions",
     "type": "library",
-    "description": "Test Lighthouse validators with ease",
+    "description": "PHPUnit assertions for validating Lighthouse validators",
     "keywords": [
+        "pupunit",
         "lighhouse",
         "lighthouse-validator-test"
     ],
-    "homepage": "https://github.com/daniel-de-wit/lighthouse-validator-assertion",
+    "homepage": "https://github.com/daniel-de-wit/lighthouse-validator-assertions",
     "license": "MIT",
     "authors": [
         {
