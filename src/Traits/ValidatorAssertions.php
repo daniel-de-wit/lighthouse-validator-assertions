@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DanielDeWit\LighthouseValidatorAssertions\Traits;
 
 use DanielDeWit\LighthouseValidatorAssertions\Assertions\AssertArrayContains;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Nuwave\Lighthouse\Support\Contracts\ArgumentSetValidation;

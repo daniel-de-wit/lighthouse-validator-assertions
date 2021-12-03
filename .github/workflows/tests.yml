@@ -1,0 +1,13 @@
+name: Coveralls
+
+on: [push, pull_request]
+
+jobs:
+  coveralls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test PHP 8.0
+        run: make test-8.0
+      - name: Test PHP 8.1
+        run: make test-8.1

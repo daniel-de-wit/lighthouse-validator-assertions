@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DanielDeWit\LighthouseValidatorAssertions\Constraints;
 
 use PHPUnit\Framework\Constraint\Constraint;
@@ -7,7 +9,7 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 /**
- * Copied from https://github.com/sebastianbergmann/phpunit/pull/3161
+ * Copied from https://github.com/sebastianbergmann/phpunit/pull/3161.
  *
  * Constraint that asserts that the array it is evaluated for has a specified subset.
  *
@@ -17,8 +19,8 @@ use SebastianBergmann\RecursionContext\InvalidArgumentException;
 class ArrayContainsConstraint extends Constraint
 {
     /**
-     * @param  array<string, array<mixed>>  $subset
-     * @param  bool  $strict
+     * @param array<string, array> $subset
+     * @param bool                 $strict
      */
     public function __construct(
         protected array $subset,
@@ -27,7 +29,7 @@ class ArrayContainsConstraint extends Constraint
     }
 
     /**
-     * Evaluates the constraint for parameter $other
+     * Evaluates the constraint for parameter $other.
      *
      * If $returnResult is set to false (the default), an exception is thrown
      * in case of a failure. null is returned otherwise.
@@ -36,11 +38,9 @@ class ArrayContainsConstraint extends Constraint
      * a boolean value instead: true in case of success, false in case of a
      * failure.
      *
-     * @param  array  $other  value or object to evaluate
-     * @param  string  $description  Additional information about the test
-     * @param  bool  $returnResult  Whether to return a result or throw an exception
-     *
-     * @return bool|null
+     * @param array  $other        value or object to evaluate
+     * @param string $description  Additional information about the test
+     * @param bool   $returnResult Whether to return a result or throw an exception
      */
     public function evaluate($other, string $description = '', bool $returnResult = false): ?bool
     {
@@ -54,7 +54,7 @@ class ArrayContainsConstraint extends Constraint
             return $result;
         }
 
-        if (! $result) {
+        if (!$result) {
             $f = new ComparisonFailure(
                 $this->subset,
                 $other,
@@ -80,12 +80,12 @@ class ArrayContainsConstraint extends Constraint
     }
 
     /**
-     * Returns the description of the failure
+     * Returns the description of the failure.
      *
      * The beginning of failure messages is "Failed asserting that" in most
      * cases. This method should return the second part of that sentence.
      *
-     * @param  mixed  $other  evaluated value or object
+     * @param mixed $other evaluated value or object
      *
      * @throws InvalidArgumentException
      */
@@ -96,8 +96,8 @@ class ArrayContainsConstraint extends Constraint
 
     protected function isAssociative(array $array): bool
     {
-        return \array_reduce(\array_keys($array), function (bool $carry, $key): bool {
-            return $carry || \is_string($key);
+        return array_reduce(array_keys($array), function (bool $carry, $key): bool {
+            return $carry || is_string($key);
         }, false);
     }
 
@@ -148,7 +148,7 @@ class ArrayContainsConstraint extends Constraint
                         if (is_array($subset_value)) {
                             $recursed = $this->arrayIntersectRecursive($array_value, $subset_value);
 
-                            if (! empty($recursed)) {
+                            if (!empty($recursed)) {
                                 $intersect[$key] = $recursed;
 
                                 break;
@@ -157,10 +157,10 @@ class ArrayContainsConstraint extends Constraint
                     }
                 } else {
                     foreach ($subset as $key => $subset_value) {
-                        if (! is_array($subset_value) && $this->compare(
-                                $subset_value,
-                                $array_value
-                            )) {
+                        if (!is_array($subset_value) && $this->compare(
+                            $subset_value,
+                            $array_value,
+                        )) {
                             $intersect[$key] = $array_value;
 
                             break;
