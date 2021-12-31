@@ -10,4 +10,6 @@ jobs:
       - name: Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: docker-compose run --rm -e COVERALLS_REPO_TOKEN php-8.1 composer run coveralls
+        run: |
+          make coverage
+          docker-compose run --rm -e COVERALLS_REPO_TOKEN php-8.1 composer run coveralls
