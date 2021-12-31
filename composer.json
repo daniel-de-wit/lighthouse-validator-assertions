@@ -51,6 +51,7 @@
         "static-check": "vendor/bin/phpstan analyse --memory-limit=2G",
         "style-check": "vendor/bin/php-cs-fixer fix --diff --verbose --allow-risky=yes --dry-run",
         "style-fix": "vendor/bin/php-cs-fixer fix --diff --verbose --allow-risky=yes",
-        "test": "vendor/bin/phpunit --no-coverage"
+        "test": "vendor/bin/phpunit --no-coverage",
+        "coveralls": "vendor/bin/php-coveralls -v"
     }
 }

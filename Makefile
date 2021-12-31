@@ -31,3 +31,7 @@ static-check:
 coverage:
 	@docker-compose run --rm php-8.1 composer install
 	@docker-compose run --rm php-8.1 composer run coverage
+
+coveralls:
+	@make coverage
+	@docker-compose run --rm php-8.1 composer run coveralls
