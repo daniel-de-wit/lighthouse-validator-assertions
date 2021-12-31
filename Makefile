@@ -34,4 +34,4 @@ coverage:
 
 coveralls:
 	@make coverage
-	@docker-compose run --rm php-8.1 -e COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN composer run coveralls
+	@docker-compose run --rm -e COVERALLS_REPO_TOKEN php-8.1 composer run coveralls
