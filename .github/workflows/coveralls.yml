@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Coveralls
-        run: make coveralls
+        run: docker-compose run --rm -e COVERALLS_REPO_TOKEN php-8.1 sh -c 'echo $COVERALLS_REPO_TOKEN'
