@@ -8,6 +8,7 @@ use DanielDeWit\LighthouseValidatorAssertions\Assertions\AssertArrayContains;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
+use Illuminate\Foundation\Http\FormRequest;
 use Nuwave\Lighthouse\Support\Contracts\ArgumentSetValidation;
 
 trait ValidatorAssertions
