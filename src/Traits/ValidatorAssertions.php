@@ -13,7 +13,7 @@ use Nuwave\Lighthouse\Support\Contracts\ArgumentSetValidation;
 trait ValidatorAssertions
 {
     protected function assertValidatorMessages(
-        ArgumentSetValidation $validator,
+        FormRequest $request,
         array $input,
         array $expected,
         string $msg = '',
@@ -22,9 +22,9 @@ trait ValidatorAssertions
 
         $errors = $validationFactory->make(
             $input,
-            $validator->rules(),
-            $validator->messages(),
-            $validator->attributes(),
+            $request->rules(),
+            $request->messages(),
+            $request->attributes(),
         )->errors()->toArray();
 
         AssertArrayContains::assertArrayContains(
