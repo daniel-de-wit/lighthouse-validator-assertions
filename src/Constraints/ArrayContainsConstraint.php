@@ -4,6 +4,7 @@ namespace DanielDeWit\LighthouseValidatorAssertions\Constraints;
 
 use PHPUnit\Framework\Constraint\Constraint;
 use SebastianBergmann\Comparator\ComparisonFailure;
+use SebastianBergmann\Exporter\Exporter;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 /**
@@ -76,7 +77,7 @@ class ArrayContainsConstraint extends Constraint
      */
     public function toString(): string
     {
-        return 'contain ' . $this->exporter()->export($this->subset);
+        return 'contain ' . (new Exporter)->export($this->subset);
     }
 
     /**
